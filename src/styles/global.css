@@ -15,9 +15,8 @@
   --color-border: #E5E0D8;
 
   /* Typography */
-  --font-serif: 'Source Serif 4', 'Georgia', serif;
-  --font-display: 'Libre Baskerville', 'Georgia', serif;
-  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Libre Baskerville', 'Georgia', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -217,7 +216,7 @@ a:hover {
 }
 
 .tagline {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 1.125rem;
   font-weight: 400;
   color: var(--color-text-secondary);
@@ -285,7 +284,7 @@ a:hover {
 }
 
 .page-subtitle {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 1.125rem;
   font-weight: 400;
   color: var(--color-text-secondary);
