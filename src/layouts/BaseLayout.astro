@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  currentPage?: string;
+}
+
+const {
+  title,
+  description = "AI, strategy, and culture. Thirty years of building things.",
+  currentPage = ""
+} = Astro.props;
+
+const siteTitle = "Matt Robinson";
+const fullTitle = currentPage ? `${title} — ${siteTitle}` : siteTitle;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mattrobinson.ai" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="canonical" href={`https://mattrobinson.ai${Astro.url.pathname}`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav>
+        <a href="/" class="site-name">Matt Robinson</a>
+        <div class="nav-links">
+          <a href="/bio" class:list={["nav-link", { active: currentPage === "bio" }]}>Bio</a>
+          <a href="/writing" class:list={["nav-link", { active: currentPage === "writing" }]}>Writing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <span>&copy; {new Date().getFullYear()} Matt Robinson</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/mattrobinson-au/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
