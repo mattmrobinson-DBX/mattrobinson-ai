@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout
@@ -13,8 +18,80 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="page-subtitle">Essays on AI, strategy, and culture.</p>
     </header>
 
-    <div class="writing-placeholder animate-in-delay-1">
-      <p>Coming soon.</p>
-    </div>
+    {posts.length === 0 ? (
+      <div class="writing-placeholder animate-in-delay-1">
+        <p>Coming soon.</p>
+      </div>
+    ) : (
+      <ul class="writing-list animate-in-delay-1">
+        {posts.map((post) => (
+          <li class="writing-item">
+            <a href={`/writing/${post.id}`}>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-AU', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
   </article>
 </BaseLayout>
+
+<style>
+  .writing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .writing-item {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .writing-item:last-child {
+    border-bottom: none;
+  }
+
+  .writing-item a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .writing-item time {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .writing-item h2 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+    transition: color 0.2s ease;
+  }
+
+  .writing-item a:hover h2 {
+    color: var(--color-accent);
+  }
+
+  .writing-item p {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
