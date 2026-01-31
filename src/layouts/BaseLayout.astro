@@ -42,6 +42,60 @@ const fullTitle = currentPage ? `${title} — ${siteTitle}` : siteTitle;
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{fullTitle}</title>
+
+    <!-- Structured Data for AI/LLM Visibility -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mattrobinson.ai/#person",
+          "name": "Matt Robinson",
+          "url": "https://mattrobinson.ai",
+          "sameAs": [
+            "https://www.linkedin.com/in/mattrobinson-au/"
+          ],
+          "jobTitle": "Managing Director",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "DBX at Bastion",
+            "url": "https://au.bastionagency.com/digital/"
+          },
+          "description": "Digital strategy leader with 30 years experience. Co-founder of AnalogFolk (2011), now Managing Director of DBX at Bastion. Works at the intersection of AI, strategy, and culture.",
+          "knowsAbout": [
+            "Digital Strategy",
+            "AI Strategy",
+            "Brand Building",
+            "Digital Transformation",
+            "Marketing Technology",
+            "Experience Design"
+          ],
+          "alumniOf": [
+            {
+              "@type": "Organization",
+              "name": "AnalogFolk",
+              "description": "Digital creative agency co-founded in 2011"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressCountry": "Australia"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mattrobinson.ai/#website",
+          "url": "https://mattrobinson.ai",
+          "name": "Matt Robinson",
+          "description": "AI, strategy, and culture. Thirty years of building things.",
+          "publisher": {
+            "@id": "https://mattrobinson.ai/#person"
+          },
+          "inLanguage": "en-AU"
+        }
+      ]
+    })} />
   </head>
   <body>
     <header class="site-header">
