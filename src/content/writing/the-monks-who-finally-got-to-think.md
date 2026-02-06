@@ -17,6 +17,8 @@ A job is a bundle of tasks. Some of those tasks are the reason you took the job.
 
 ---
 
+![A water droplet creating expanding concentric ripples on a still surface](/images/writing/the-monks-who-finally-got-to-think/ripple.png)
+
 **Enter Jevons Paradox — and the enlightenment of monks.**
 
 There's an economic concept that keeps proving itself across centuries. In 1865, economist William Stanley Jevons noticed something counterintuitive: when steam engines became more efficient at burning coal, coal consumption didn't fall. It exploded. Efficiency made coal useful in more situations, so we used more of it.
@@ -32,6 +34,8 @@ Medieval monks understood this — even if they didn't have Jevons to explain it
 They joined monasteries to pursue enlightenment — to study, contemplate, and create. Instead, many spent decades hunched over desks copying manuscripts by hand. Page after page. Year after year. Intelligent, devoted people doing transcription work. Not because copying was their calling, but because someone had to do it.
 
 Then Gutenberg showed up with his printing press.
+
+![An empty writing desk with an inkwell and quill, lit by a beam of light from an unseen window](/images/writing/the-monks-who-finally-got-to-think/empty-desk.png)
 
 The printing press didn't kill monks. It killed the copying task. And suddenly, monks could actually be monks — interpreting texts, creating illuminated works, teaching, thinking. Doing the work they'd signed up for in the first place.
 
@@ -92,6 +96,8 @@ When AI collapses the cost of failure, the only real risk is being under-ambitio
 The path is now open to more people than ever before.
 
 ---
+
+![An arched stone doorway standing open with light streaming through](/images/writing/the-monks-who-finally-got-to-think/open-door.png)
 
 **The real risk isn't AI.** As Professor David Tuffley from Griffith University put it, "the real risk may lie with workers who don't adapt to using AI."
 
