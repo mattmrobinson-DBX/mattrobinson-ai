@@ -152,6 +152,23 @@ const { Content } = await render(post);
     height: auto;
     margin: var(--space-2xl) auto;
     border-radius: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
+  }
+
+  .post-content :global(img.in-view) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post-content :global(img) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   .post-content :global(figure) {
@@ -194,3 +211,42 @@ const { Content } = await render(post);
     }
   }
 </style>
+
+<script>
+  const images = document.querySelectorAll<HTMLImageElement>('.post-content img');
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -50px 0px' });
+
+  images.forEach(img => observer.observe(img));
+
+  // Subtle parallax depth (desktop only)
+  if (window.innerWidth > 640 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          images.forEach(img => {
+            if (img.classList.contains('in-view')) {
+              const rect = img.getBoundingClientRect();
+              const center = rect.top + rect.height / 2;
+              const viewCenter = window.innerHeight / 2;
+              const offset = (center - viewCenter) * 0.08;
+              const clamped = Math.max(-20, Math.min(20, offset));
+              img.style.transform = `translateY(${clamped}px)`;
+            }
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+</script>
