@@ -3,16 +3,21 @@ interface Props {
   title: string;
   description?: string;
   currentPage?: string;
+  image?: string;
 }
 
 const {
   title,
   description = "AI, strategy, and culture. Thirty years of building things.",
-  currentPage = ""
+  currentPage = "",
+  image
 } = Astro.props;
 
 const siteTitle = "Matt Robinson";
+const siteUrl = "https://mattrobinson.ai";
 const fullTitle = currentPage ? `${title} — ${siteTitle}` : siteTitle;
+const ogImage = image ? `${siteUrl}${image}` : undefined;
+const ogType = currentPage === "writing" ? "article" : "website";
 ---
 
 <!DOCTYPE html>
@@ -25,13 +30,15 @@ const fullTitle = currentPage ? `${title} — ${siteTitle}` : siteTitle;
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mattrobinson.ai" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="canonical" href={`https://mattrobinson.ai${Astro.url.pathname}`} />
 

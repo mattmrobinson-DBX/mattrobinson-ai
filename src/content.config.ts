@@ -8,6 +8,7 @@ const writing = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     draft: z.boolean().default(false),
+    ogImage: z.string().optional(),
   }),
 });
 

@@ -3,6 +3,7 @@ title: "The Monks Who Finally Got to Think"
 description: "One in four Australian workers fear AI will take their job. But we're asking the wrong question. The real question is what you'd do if the grunt work disappeared."
 pubDate: 2026-02-01
 draft: false
+ogImage: /images/writing/the-monks-who-finally-got-to-think/open-door.png
 ---
 
 **One in four Australian workers fear AI will take their job.** According to recent research from Talent, that number rises to nearly 40% when you ask about broader anxiety around AI's impact on their role.
