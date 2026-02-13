@@ -104,7 +104,19 @@ const ogType = currentPage === "writing" ? "article" : "website";
             "@id": "https://mattrobinson.ai/#person"
           },
           "inLanguage": "en-AU"
-        }
+        },
+        ...(ogType === "article" ? [{
+          "@type": "Article",
+          "headline": title,
+          "description": description,
+          "url": `${siteUrl}${Astro.url.pathname}`,
+          "author": { "@id": "https://mattrobinson.ai/#person" },
+          "publisher": { "@id": "https://mattrobinson.ai/#person" },
+          ...(publishedDate ? { "datePublished": publishedDate.toISOString() } : {}),
+          ...(ogImage ? { "image": ogImage } : {}),
+          "isPartOf": { "@id": "https://mattrobinson.ai/#website" },
+          "inLanguage": "en-AU"
+        }] : [])
       ]
     })} />
   </head>
