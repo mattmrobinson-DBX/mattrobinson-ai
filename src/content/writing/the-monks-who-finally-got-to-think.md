@@ -45,13 +45,13 @@ Some monks resented Gutenberg. They'd built their identity around being master c
 
 **This pattern isn't ancient history. It's Monday morning.**
 
-My first agency job was as a media assistant in Sydney around the Olympics. End of day meant faxing order confirmations to TV sales teams. Reconciling booking schedules. Chasing make-goods. The grunt work that made advertising actually appear on screens.
+My first 'big agency' job was as a media assistant in Sydney, just before the 2000 Olympics. End of day meant faxing order confirmations to TV sales teams. Reconciling booking schedules. Chasing make-goods. The grunt work that made advertising actually appear on screens.
 
 I wanted to spend my time learning how media works. Instead, I spent most of my time on tasks that left no room to think about how media works.
 
 Then at the start of the first dot-com boom, I moved to one of Australia's first digital agencies. Different job, same pattern. Before anyone could think strategically, we had to export data from half a dozen ad platforms. Dump it into Excel. Format it for analysis. Label creative variants, media formats, messaging approaches, visual styles. Build pivot tables. Turn those into presentations. Days — sometimes weeks — of grunt work before a single insight emerged.
 
-The data crunching was necessary. It was also the bottleneck. The quality of our analysis depended on how much time we had left after the formatting was done. Usually, not enough.
+The data crunching was necessary. It taught me a hell of a lot. But It was also the bottleneck. The quality of our analysis depended on how much time we had left after the formatting was done. Usually, not enough.
 
 We were copying monks.
 
