@@ -4,13 +4,15 @@ interface Props {
   description?: string;
   currentPage?: string;
   image?: string;
+  publishedDate?: Date;
 }
 
 const {
   title,
   description = "AI, strategy, and culture. Thirty years of building things.",
   currentPage = "",
-  image
+  image,
+  publishedDate
 } = Astro.props;
 
 const siteTitle = "Matt Robinson";
@@ -33,6 +35,8 @@ const ogType = currentPage === "writing" ? "article" : "website";
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
     {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogType === "article" && <meta property="article:author" content="Matt Robinson" />}
+    {ogType === "article" && publishedDate && <meta property="article:published_time" content={publishedDate.toISOString()} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
