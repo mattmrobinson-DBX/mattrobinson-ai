@@ -17,13 +17,13 @@ const {
 
 const siteTitle = "Matt Robinson";
 const siteUrl = "https://mattrobinson.ai";
-const fullTitle = currentPage ? `${title} — ${siteTitle}` : siteTitle;
+const fullTitle = currentPage ? `${title} — ${siteTitle}` : title;
 const ogImage = image ? `${siteUrl}${image}` : undefined;
-const ogType = currentPage === "writing" ? "article" : "website";
+const ogType = publishedDate ? "article" : "website";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,6 +45,9 @@ const ogType = currentPage === "writing" ? "article" : "website";
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="canonical" href={`https://mattrobinson.ai${Astro.url.pathname}`} />
+    <meta name="author" content="Matt Robinson" />
+    <link rel="me" href="https://www.linkedin.com/in/mattrobinson-au/" />
+    <link rel="alternate" type="application/rss+xml" title="Matt Robinson" href="/rss.xml" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,6 +65,8 @@ const ogType = currentPage === "writing" ? "article" : "website";
           "@type": "Person",
           "@id": "https://mattrobinson.ai/#person",
           "name": "Matt Robinson",
+          "givenName": "Matt",
+          "familyName": "Robinson",
           "url": "https://mattrobinson.ai",
           "sameAs": [
             "https://www.linkedin.com/in/mattrobinson-au/"
@@ -72,14 +77,21 @@ const ogType = currentPage === "writing" ? "article" : "website";
             "name": "DBX at Bastion",
             "url": "https://au.bastionagency.com/digital/"
           },
-          "description": "Digital strategy leader with 30 years experience. Co-founder of AnalogFolk (2011), now Managing Director of DBX at Bastion. Works at the intersection of AI, strategy, and culture.",
+          "description": "Digital strategy leader with 30 years experience in advertising, AI, and technology. Co-founder of AnalogFolk (2011), now Managing Director of DBX at Bastion. Works at the intersection of AI, strategy, and culture.",
           "knowsAbout": [
             "Digital Strategy",
             "AI Strategy",
+            "Artificial Intelligence",
+            "Advertising",
             "Brand Building",
             "Digital Transformation",
             "Marketing Technology",
-            "Experience Design"
+            "Experience Design",
+            "Creative Agency Management"
+          ],
+          "award": [
+            "Gold APAC Effie Award",
+            "Multiple Agency of the Year awards"
           ],
           "alumniOf": [
             {
@@ -88,11 +100,16 @@ const ogType = currentPage === "writing" ? "article" : "website";
               "description": "Digital creative agency co-founded in 2011"
             }
           ],
+          "nationality": {
+            "@type": "Country",
+            "name": "Australia"
+          },
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Sydney",
-            "addressCountry": "Australia"
-          }
+            "addressCountry": "AU"
+          },
+          "mainEntityOfPage": "https://mattrobinson.ai/bio"
         },
         {
           "@type": "WebSite",

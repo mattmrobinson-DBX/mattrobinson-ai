@@ -1,0 +1,21 @@
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
+import type { APIContext } from 'astro';
+
+export async function GET(context: APIContext) {
+  const posts = await getCollection('writing');
+  return rss({
+    title: 'Matt Robinson',
+    description: 'AI, strategy, and culture. Thirty years of building things.',
+    site: context.site!,
+    items: posts
+      .filter(post => !post.data.draft)
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+      .map(post => ({
+        title: post.data.title,
+        pubDate: post.data.pubDate,
+        description: post.data.description,
+        link: `/writing/${post.id}/`,
+      })),
+  });
+}

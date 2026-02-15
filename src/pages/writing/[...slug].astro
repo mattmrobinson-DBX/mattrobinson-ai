@@ -31,6 +31,7 @@ const { Content } = await render(post);
         })}
       </time>
       <h1>{post.data.title}</h1>
+      <p class="author-byline">By <a href="/bio">Matt Robinson</a></p>
     </header>
 
     <div class="post-content prose animate-in-delay-1">
@@ -63,6 +64,23 @@ const { Content } = await render(post);
     line-height: 1.2;
     letter-spacing: -0.02em;
     margin: 0;
+  }
+
+  .author-byline {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-sm);
+  }
+
+  .author-byline a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .author-byline a:hover {
+    color: var(--color-accent);
   }
 
   .post-content {
